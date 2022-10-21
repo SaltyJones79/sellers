@@ -1,0 +1,1 @@
+// implementation file for Powerseller class
