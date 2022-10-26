@@ -2,7 +2,6 @@
 #include "Seller.h"
 #include <iostream>
 
-
 Seller::Seller() : Person() {
   rating = 0.0;
   totalItemsSold = 0;
@@ -15,30 +14,23 @@ Seller::Seller(string fName, string lName, string iD, string email, float r,
   totalItemsSold = totSold;
 }
 
-Seller::Seller(const Seller &s){
+Seller::Seller(const Seller &s) {
   rating = s.rating;
   totalItemsSold = s.totalItemsSold;
 }
 
-float Seller::getRating() const {
-  return rating;
-}
+float Seller::getRating() const { return rating; }
 
-int Seller::getTotalItemsSold() const {
-  return totalItemsSold;
-}
+int Seller::getTotalItemsSold() const { return totalItemsSold; }
 
-void Seller::setRating(float rate){
-  rating = rate;
-}
+void Seller::setRating(float rate) { rating = rate; }
 
-void Seller::setTotalItemsSold(int totIsold){
-  totalItemsSold = totIsold;
-}
+void Seller::setTotalItemsSold(int totIsold) { totalItemsSold = totIsold; }
 
-void Seller::print() const{
+void Seller::print() const {
   Person::print();
-  cout << rating << endl;
+  cout << getRating() << endl;
+  cout << getTotalItemsSold() << endl;
 }
 
-void Seller::read(){}
+void Seller::read() {}

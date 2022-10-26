@@ -28,16 +28,16 @@ public:
 
   bool operator==(const Person &p);
 
-  Person operator=(const Person &p);
+  const Person operator=(const Person &p);
 
-  Person operator!=(const Person &p);
+  bool operator!=(const Person &p);
 
-  Person operator<(const Person &p);
+  bool operator<(const Person &p);
 
-  Person operator>(const Person &p);
+  bool operator>(const Person &p);
 
-  friend istream &operator>>(istream & is, Person & p){
-    is>>p.firstName >> p.lastName >> p.userID >> p.emailAddress;
+  friend istream &operator>>(istream &is, Person &p) {
+    is >> p.firstName >> p.lastName >> p.userID >> p.emailAddress;
 
     return is;
   }

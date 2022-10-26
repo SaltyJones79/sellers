@@ -1,7 +1,7 @@
 // implementation file for Powerseller class
 #include "Powerseller.h"
 
-Powerseller::Powerseller():Seller() {
+Powerseller::Powerseller() : Seller() {
   webSite = "";
   soldThisYear = 0;
 }
@@ -9,42 +9,33 @@ Powerseller::Powerseller():Seller() {
 Powerseller::Powerseller(string fName, string lName, string iD, string email,
                          float r, int totSold, string webS, int soldYear)
     : Seller(fName, lName, iD, email, r, totSold) {
-  /*firstName = fName;
+  firstName = fName;
   lastName = lName;
   userID = iD;
   emailAddress = email;
   rating = r;
-  totalItemsSold = totSold;*/
+  totalItemsSold = totSold;
   webSite = webS;
   soldThisYear = soldYear;
 }
 
-Powerseller::Powerseller(Powerseller &pS){
+Powerseller::Powerseller(Powerseller &pS) {
   webSite = pS.webSite;
   soldThisYear = pS.soldThisYear;
 }
 
-string Powerseller::getWebSite() const{
-  return webSite;
-}
+string Powerseller::getWebSite() const { return webSite; }
 
-int Powerseller::getSoldThisYear() const{
-  return soldThisYear;
-}
+int Powerseller::getSoldThisYear() const { return soldThisYear; }
 
-void Powerseller::setWebsite(string wSite){
-  webSite = wSite;
-}
+void Powerseller::setWebsite(string wSite) { webSite = wSite; }
 
-void Powerseller::setSoldThisYear(int soldTyear){
-  soldThisYear = soldTyear;
-}
+void Powerseller::setSoldThisYear(int soldTyear) { soldThisYear = soldTyear; }
 
 void Powerseller::print() const {
   Seller::print();
-  
+  cout << getSoldThisYear() << endl;
+  cout << getWebSite() << endl;
 }
 
-void Powerseller::read(){
-  
-}
+void Powerseller::read() {}

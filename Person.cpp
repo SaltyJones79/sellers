@@ -8,60 +8,76 @@ Person::Person() {
   emailAddress = "";
 }
 
-Person::Person(string fName, string lName, string iD, string email){
-  fName = firstName;
-  lName = lastName;
-  iD = userID;
-  email = emailAddress;
+Person::Person(string fName, string lName, string iD, string email) {
+  firstName = fName;
+  lastName = lName;
+  userID = iD;
+  emailAddress = email;
 }
 
-Person::Person(Person &p){
+Person::Person(Person &p) {
   firstName = p.firstName;
   lastName = p.lastName;
   userID = p.userID;
   emailAddress = p.emailAddress;
 }
 
-Person::~Person(){}
+Person::~Person() {}
 
-string Person::getFirstName()const{
-  return firstName;
+string Person::getFirstName() const { return firstName; }
+
+string Person::getLastName() const { return lastName; }
+
+string Person::getID() const { return userID; }
+
+string Person::getEmail() const { return emailAddress; }
+
+void Person::setFirstName(string firstN) { firstName = firstN; }
+
+void Person::setLastName(string lastN) { lastName = lastN; }
+
+void Person::setID(string ID) { userID = ID; }
+
+void Person::setEmail(string Email) { emailAddress = Email; }
+
+void Person::print() const {}
+
+void Person::read() {}
+
+bool Person::operator==(const Person &p) {
+  if (firstName == p.firstName && lastName == p.lastName &&
+      emailAddress == p.emailAddress)
+    return true;
+  else
+    return false;
 }
 
-string Person::getLastName() const{
-  return lastName;
+bool Person::operator!=(const Person &p) {
+  if (firstName != p.firstName && lastName != p.lastName)
+    return true;
+  else
+    return false;
 }
 
-string Person::getID() const{
-  return userID;
+const Person Person::operator=(const Person &p) {
+  if (this != &p) {
+    firstName = p.firstName;
+    lastName = p.lastName;
+    userID = p.userID;
+    emailAddress = p.emailAddress;
+  }
+  return *this;
 }
 
-string Person::getEmail() const {
-  return emailAddress;
+bool Person::operator<(const Person &p) {
+  if (lastName < p.lastName)
+    return true;
+  else
+    return false;
 }
 
-void Person::setFirstName(string firstN){
-  firstName = firstN;
-}
-
-void Person::setLastName(string lastN){
-  lastName = lastN;
-}
-
-void Person::setID(string ID){
-  userID = ID;
-}
-
-void Person::setEmail(string Email){
-  emailAddress = Email;
-}
-
-void Person::print() const{}
-
-void Person::read(){}
-
-bool Person::operator==(const Person &p){
-  if(firstName == p.firstName && lastName == p.lastName && emailAddress == p.emailAddress )
+bool Person::operator>(const Person &p) {
+  if (lastName > p.lastName)
     return true;
   else
     return false;
