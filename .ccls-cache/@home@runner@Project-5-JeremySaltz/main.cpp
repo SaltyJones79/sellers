@@ -15,6 +15,7 @@
 #include <list>
 
 // some prototype for file reading
+void initialize(ifstream &in, Seller *s, Powerseller *pS, list<Seller *>&aS);
 
 int main() {
   ifstream myIn;
@@ -35,22 +36,12 @@ int main() {
   // 230, "Website.com", 34);
 
   // cout << test;
+
+  initialize(myIn, sptr, psPtr, allSellers);
+  
   list<Seller *>::iterator itr;
 
-  while (!myIn.eof()) {
-    myIn >> rank;
-    if (rank == 'S') {
-      myIn >> *sptr;
-      cout << *sptr << endl;
-      allSellers.push_back(sptr);
-      sptr = new Seller;  
-    } else if (rank == 'P') {
-      myIn >> *psPtr;
-      cout << *psPtr << endl;
-      allSellers.push_back(psPtr);
-      psPtr = new Powerseller;
-    }
-  }
+  
   for (itr = allSellers.begin(); itr != allSellers.end(); itr++) {
     (*itr)->print();
     cout << endl;
@@ -58,4 +49,22 @@ int main() {
 
   myIn.close();
   return 0;
+}
+
+void initialize(ifstream &in, Seller *s, Powerseller *pS, list<Seller *>&aS){
+  
+  char rank;
+  
+  while (!in.eof()) {
+    in >> rank;
+    if (rank == 'S') {
+      in >> *s;
+      aS.push_back(s);
+      s = new Seller;  
+    } else if (rank == 'P') {
+      in >> *pS;
+      aS.push_back(pS);
+      pS = new Powerseller;
+    }
+  }
 }
