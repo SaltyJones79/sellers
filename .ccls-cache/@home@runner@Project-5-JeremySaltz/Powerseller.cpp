@@ -36,6 +36,6 @@ void Powerseller::print() const {
   Seller::print();
   cout << getSoldThisYear() << endl;
   cout << getWebSite() << endl;
-}
+  }
 
 void Powerseller::read() {}

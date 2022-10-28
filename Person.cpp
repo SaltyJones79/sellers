@@ -40,7 +40,12 @@ void Person::setID(string ID) { userID = ID; }
 
 void Person::setEmail(string Email) { emailAddress = Email; }
 
-void Person::print() const {}
+void Person::print() const {
+  cout << firstName << endl;
+  cout << lastName << endl;
+  cout << userID << endl;
+  cout << emailAddress << endl;
+}
 
 void Person::read() {}
 
@@ -60,12 +65,15 @@ bool Person::operator!=(const Person &p) {
 }
 
 const Person Person::operator=(const Person &p) {
-  if (this != &p) {
-    firstName = p.firstName;
-    lastName = p.lastName;
-    userID = p.userID;
-    emailAddress = p.emailAddress;
-  }
+
+  if(this == &p)
+    return *this;
+  
+    this->firstName = p.firstName;
+    this->lastName = p.lastName;
+    this->userID = p.userID;
+    this->emailAddress = p.emailAddress;
+  
   return *this;
 }
 

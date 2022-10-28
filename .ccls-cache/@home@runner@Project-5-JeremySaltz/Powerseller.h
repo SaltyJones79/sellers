@@ -20,6 +20,27 @@ public:
   virtual void print() const;
   virtual void read();
 
+  friend istream &operator>>(istream &is, Powerseller &pS) {
+
+    is >> pS.firstName >> pS.lastName >> pS.userID >> pS.emailAddress >>
+        pS.rating >> pS.totalItemsSold >> pS.webSite >> pS.soldThisYear;
+
+    return is;
+  }
+
+  friend ostream &operator<<(ostream &os, Powerseller &pS) {
+    os << "First name: "<< pS.firstName << endl
+       <<"Last name: "<< pS.lastName << endl
+       <<"User Id: " << pS.userID << endl
+       <<"Email Address: " << pS.emailAddress << endl
+       <<"Rating: " << pS.rating << endl
+       <<"Total Items sold: " << pS.totalItemsSold << endl
+       <<"Website: " << pS.webSite << endl
+       <<"Items sold this year: " << pS.soldThisYear << endl;
+
+    return os;
+  }
+
 protected:
 private:
   string webSite;
